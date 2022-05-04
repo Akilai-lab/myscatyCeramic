@@ -1,0 +1,26 @@
+<style>
+
+</style>
+<header>
+  <div id="connect">
+    <img src="./../assets/icones/user-circle-solid.svg" class="item" alt="profil" />
+    <p routerLink='/connect' *ngIf="!isConnected" style="cursor: grab;">Connexion</p>
+    <p *ngIf="isConnected" (click)="deconnect()" style="cursor: grab;">Se déconnecter</p>
+    <img src="./../assets/icones/shopping-cart-solid.svg" routerLink="/toPanier" class="panier" alt="panier" style="width: 20px; margin-left: 15px;" />
+  </div>
+  <div id="nav">
+    <p class="title">myscaty ceramic</p>
+    <nav>
+      <ul>
+        <li routerLink="/**">Accueil</li>
+        <li><a href="#boutique">Boutique</a></li>
+        <li>Informations</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<router-outlet></router-outlet>
+<footer style="text-align: center;">
+  <p>© 2021 by Ceanyth</p>
+</footer>

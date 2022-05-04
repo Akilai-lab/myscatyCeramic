@@ -1,0 +1,33 @@
+<section style="display: flex;margin-top: 15%;">
+    <div class="pictures">
+        <ul style="margin-right: 50px;">
+            <li *ngFor="let item of img" style="width: 150px;height: 150px;">
+                <span style="background-image: url({{item.img}});background-position: center;background-size: contain;display: block;height: 200px;background-repeat: no-repeat;" (click)="checkPicture($event, item)">
+                {{item.id}}</span>
+            </li>
+        </ul>
+        <div id="picture"></div> 
+    </div>
+    <div class="infoArticle" *ngFor="let item of ArrayDescript">
+        <h3>{{item.title}}</h3>
+        <p>{{item.price}} Euros</p>
+        <p>Description</p>
+        <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+            <div class="form-group" *ngIf="item.first.title && isAddBefore == false">
+                <input type="checkbox" id="first" name="first" class="form-control"  formControlName="firstObject">
+                <label for="first">{{item.first.title}} - {{item.first.dimension}}</label>
+            </div>
+            <br>
+            <div class="form-group" *ngIf="item.scnd.title && isAddBefore == false">
+                <input type="checkbox" id="scnd" name="scnd"  class="form-control"  formControlName="scndObject">
+                <label for="scnd">{{item.scnd.title}} - {{item.scnd.dimension}}</label>
+            </div>
+            <br>
+            <div class="form-group" *ngIf="item.third.title && isAddBefore == false">
+                <input type="checkbox" id="third" name="third"  class="form-control"  formControlName="thirdObject">
+                <label for="scnd">{{item.third.title}} - {{item.third.dimension}}</label>
+            </div>
+            <button type="submit">Ajout au Panier</button>
+        </form>
+    </div>
+</section>

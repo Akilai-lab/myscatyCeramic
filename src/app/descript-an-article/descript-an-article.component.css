@@ -1,0 +1,7 @@
+.pictures {
+    display: flex;
+    justify-content: space-evenly;
+}
+.infoArticle {
+    margin-left: 5%;
+}

@@ -1,0 +1,33 @@
+<section style="display: flex;justify-content: space-evenly;margin-left: auto;margin-right: auto;margin-top: 10%;">
+    <div class="imgBnd" style="background-image: url(./../../assets/assets/assetBd/814b9f_24ca3a7014e548e4b72d99323b33ac06_mv2.webp);background-size: cover;width: 40%;background-repeat: no-repeat;height: 270px;background-position: left;"></div>
+    <article style="padding: 2% 5%;border: 1.5px solid green;background-color: #bbcfbb;">
+        <h2 style="text-transform: uppercase;font-size: inherit;text-align: center;color: #266c1a;">Ajoutez un article</h2>
+        <form (ngSubmit)="addAnArticle(f)" enctype="multipart/form-data" #f="ngForm" >
+            <div class="form-group" style="display: flex;margin: 2% auto;justify-content: space-between;">
+                <input type="text" class="form-control" name="title" id="title" placeholder="Titre de l'article" style="padding: 3% 5%;text-align: center;border: 1px solid grey; width: 50%;" ngModel name="title">
+                <input type="number" class="form-control" name="price" id="price" placeholder="Prix de l'article" style="width: 30%;" ngModel name="price">
+            </div>
+            <div class="form-group" style="display: flex;margin: 2% auto;justify-content: space-between;">
+                <input type="text" class="form-control" name="titleFirst" id="titleFirst" placeholder="nomd'objet de l'article" style="padding: 3% 5%;text-align: center;border: 1px solid grey;width: 50%;" ngModel name="titleFirst">
+                <input type="text" class="form-control" name="dimensionFirst" id="dimensionFirst" placeholder="dimension d'objet de l'article" style="padding: 3% 5%;text-align: center;border: 1px solid grey;width: 50%;" ngModel name="dimensionFirst">
+                <input type="number" class="form-control" name="priceFirst" id="priceFirst" placeholder="prix de l'objet" style="width: 30%;" ngModel name="priceFirst">
+            </div>
+            <div class="form-group" style="display: flex;margin: 2% auto;justify-content: space-between;">
+                <input type="text" class="form-control" name="titleScnd" id="titleScnd" placeholder="nom d'objet de l'article" style="padding: 3% 5%;text-align: center;border: 1px solid grey;width: 50%;" ngModel name="titleScnd"><!--dimensionFirst dimensionScnd dimensionThird-->
+                <input type="text" class="form-control" name="dimensionScnd" id="dimensionScnd" placeholder="dimension d'objet de l'article" style="padding: 3% 5%;text-align: center;border: 1px solid grey;width: 50%;" ngModel name="dimensionScnd">
+                <input type="number" class="form-control" name="priceScnd" id="priceScnd" placeholder="prix de l'objet" style="width: 30%;" ngModel name="priceScnd">
+            </div>
+            <div class="form-group" style="display: flex;margin: 2% auto;justify-content: space-between;">
+                <input type="text" class="form-control" name="titleThird" id="titleThird" placeholder="nom d'objet de l'article" style="padding: 3% 5%;text-align: center;border: 1px solid grey;width: 50%;" ngModel name="titleThird">
+                <input type="text" class="form-control" name="dimensionThird" id="dimensionThird" placeholder="dimension d'objet de l'article" style="padding: 3% 5%;text-align: center;border: 1px solid grey;width: 50%;" ngModel name="dimensionThird">
+                <input type="number" class="form-control" name="priceThird" id="priceThird" placeholder="prix de l'objet" style="width: 30%;" ngModel name="priceThird">
+            </div>
+            <div class="form-group" style="display: flex;flex-direction: column;margin: 5% 0;">
+                <!--Inclure un telechargement de dossier comprenant les images-->
+                <label style="margin-bottom: 2%;font-weight: 600;">Vos photos</label>
+                <input type="file" class="form-control" id="file" (change)="onFilesAdded($event)" class="form-control" name="fichier" multiple> 
+            </div>
+            <button type="submit" style="padding: 3% 7%;background-color: #2d915e;border: 1px solid white;color: white;">Envoyer</button>
+        </form>
+    </article>
+</section>

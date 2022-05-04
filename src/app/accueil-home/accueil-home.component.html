@@ -1,0 +1,71 @@
+<section>
+    <div class="BndImg">
+      <h1>Myscaty Ceramic</h1>
+      <a href="#boutique" *ngIf="statusUser != 'admin'">Vers la boutique</a>
+      <a routerLink="/addArticle" *ngIf="statusUser == 'admin'">Vers la boutique</a>
+    </div>
+    <div id="boutique">
+      <h2>Ma Collection</h2>
+      <p>Un aperçu de ma collection 2021</p>
+      <div class="articles">
+        <div class="article" *ngFor='let item of NewArrayNextArticles'>
+          <div class="img" style="background-image: url({{item.img}});" routerLink='/article/{{item.id}}'>
+            <span>New</span>
+          </div>
+          <p>{{item.title}}</p>
+          <p>{{item.price}}</p>
+        </div>
+        <div class="article" *ngFor='let item of arrayPictures'>
+          <div class="img" style="background-image: url('{{item.img}}');" routerLink='/article/{{item.id}}'>
+            <span>New</span>
+          </div>
+          <p>{{item.title}}</p>
+          <p>{{item.price}}</p>
+        </div>
+      </div>
+      <button type="button" (click)="ShowMore()" *ngIf='moreArticles === false'>En voir plus</button>
+      <button type="button" *ngIf='moreArticles === true' (click)="ShowLess()">Voir moins</button>
+    </div>
+  </section>
+  <div class="map">
+    <img src="" /> 
+  </div>
+  <div id="contact">
+    <div class="info">
+      <h3>Myscaty Ceramic</h3>
+      <p style="text-transform: uppercase;">A : Nice</p>
+      <p style="text-transform: uppercase;">Nice, 06100 ALPES-MARITIMES</p>
+      <p>TEL:06.48.61.41.32</p>
+      <p>E-MAIL:myscaty.ceramc@gmail.com</p>
+      <div class="horaires">
+        <ul>
+          <li>LUN - VEN : 8am - 10pm</li>
+          <li>SAMEDI : 8am - 10pm</li>
+          <li>DIMANCHE : 8am - 11pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="formdemande">
+      <form>
+        <div style="width: 46%;margin-bottom: 5%;border-bottom: 1px solid black;">
+          <input type="text" style="border: none;" placeholder="Nom">
+        </div>
+        <div style="width: 46%;margin-bottom: 5%;border-bottom: 1px solid black;">
+          <input type="email" style="border: none;" placeholder="Email">
+        </div>
+        <div style="width: 100%;border-bottom: 1px solid black;margin-bottom: 5%;">
+          <input type="text" style="border: none;" placeholder="Sujet">
+        </div>
+        <div style="width: 100%;border-bottom: 1px solid black;margin-bottom: 5%;">
+          <textarea style="border: none;font-size: unset;" rows="5" cols="33">Message
+          </textarea>
+        </div>
+        <button type="submit">Envoyer</button>
+      </form>
+      <p style="margin-top: 15%;">Souscrivez un abonnement à notre Newsletter!</p>
+      <div style="margin-right: 15px;">
+        <input type="email" placeholder="Entrez votre adresse mail ici" style="padding: 3% 13%;">
+        <button type="button" style="background-color: black;padding: 3% 9%;font-size: unset;color: white;border: none;">Souscrivez !</button>
+      </div>
+    </div>
+  </div>

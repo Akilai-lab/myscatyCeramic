@@ -1,0 +1,31 @@
+/*
+<div id="panier" style="display: flex; justify-content: space-around;">
+    <div class="articlesPanier">
+        <h2>Mon Panier</h2>
+        <ul>
+            <li>Prix de l'article</li>
+            <li>Titre de l'article 
+                <br>
+                Description de l'article
+            </li>
+            <li>Quantité <span>+</span><span>-</span></li>
+        </ul>
+    </div>
+    <div class="totalPanier">
+        <p>Calcul de la somme de tous les articles</p>
+        <button type="button">Envoyer la commande</button>
+    </div>
+    <!--On va créer une autre table qui va contenir la totalité des commandes et créer un espace dédié à ceci pour l'admin-->
+</div>*/
+#panier {
+    display: flex; justify-content: space-around;
+}
+.articlesPanier {
+
+}
+.articlesPanier ul {
+    list-style: none;
+}
+.totalPanier {
+
+}

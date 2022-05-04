@@ -1,0 +1,28 @@
+<p style="float: right;font-size: xx-large;" (click)="closewindow()">x</p>
+<section style="width: 50%; text-align:center;margin-left: auto;margin-right: auto;margin-top: 15%;" *ngIf="actionConnect == false">
+    <h2 style="font-size: xxx-large;">S'inscrire</h2>
+    <p style="font-size: x-large;">Déjà membre? 
+        <button style="color: #bb7b7b;font-size: large;border: none;" (click)="connect()">Se connecter</button>
+    </p>
+    <form (ngSubmit)="onSignin(g)" #g="ngForm" style="display: flex;flex-wrap: wrap;flex-direction: column;">
+        <div class="form-group">
+            <input type="email" id="mail" name="mail" class="form-control" placeholder="E-mail" style="border: none;border-bottom: 1px solid #bb7b7b;padding: 18px;font-size: larger;"  ngModel pattern="/^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+/" required>
+        </div>
+        <div class="form-group">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe" style="border: none;border-bottom: 1px solid #bb7b7b;padding: 18px;margin-top: 20px;font-size: larger;" ngModel required>
+        </div>
+        <button type="submit" style="border: none;background-color: #a37676;color: white;font-size: x-large;padding: 10px 0;margin-top: 20px;">S'inscrire</button>
+    </form>
+</section>
+<section style="width: 50%; text-align:center;margin-left: auto;margin-right: auto;margin-top: 15%;" *ngIf="actionConnect == true">
+    <h2 style="font-size: xxx-large;">Se connecter</h2>
+    <form (ngSubmit)="onSignup(f)" #f="ngForm" style="display: flex;flex-wrap: wrap;flex-direction: column;">
+        <div class="form-group">
+            <input type="email" id="mail" name="mail" class="form-control" placeholder="E-mail" style="border: none;border-bottom: 1px solid #bb7b7b;padding: 18px;font-size: larger;"  ngModel pattern="/^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+/" required>
+        </div>
+        <div class="form-group">
+            <input type="password" id="password" name="password" class="form-control" placeholder="Mot de passe" style="border: none;border-bottom: 1px solid #bb7b7b;padding: 18px;margin-top: 20px;font-size: larger;" ngModel required>
+        </div>
+        <button type="submit" style="border: none;background-color: #a37676;color: white;font-size: x-large;padding: 10px 0;margin-top: 20px;">Se connecter</button>
+    </form>
+</section>

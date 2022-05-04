@@ -1,0 +1,60 @@
+<div   style="background-image: url('./../../assets/assets/assetBd/814b9f_24ca3a7014e548e4b72d99323b33ac06_mv2.webp');text-align: center;background-repeat: no-repeat;z-index: 2; position: relative;background-size: cover;">
+<div id="panier" style="max-width: 50%;margin: 5% auto;z-index: 3;position: absolute;top: 20%;left: 0;background-color: #ffffffdb;right: 0;padding: 3%;" *ngIf="statusUser != 'admin'">
+    <div class="articlesPanier" style="border: 1px solid black;width: 50%;">
+        <h2 style="text-transform: uppercase;border-bottom: 0.51px solid gray;padding-bottom: 3%;width: 85%;text-align: center;margin: 5% auto;">Mon Panier</h2>
+        <ul *ngFor="let objet of arrayPanier;" style="display: flex;justify-content: space-around;margin: 5%;border: 1px solid gray;padding: 2% 0;border-style: dotted dashed;">
+            <li style="background-image: url({{objet.image}});background-size: cover;background-repeat: no-repeat;width: 150px;height: 150px;">
+            </li>
+            <li style="font-weight: 800;">
+                <span>
+                    {{objet.details.title}} {{objet.details.price}} €
+                </span>
+                <span id="ModifyOrRedirect">
+                    <span style="margin-right: 10px;border-radius: 50%;background-color: #d1acab;padding: 5% 10%;color: white;font-family: monospace;"><strong style="font-size: x-large;">+</strong></span>
+                    <span (click)="OpenPopUp(objet.id)" style="margin-right: 10px;border-radius: 50%;background-color: #d1acab;padding: 5% 10%;color: white;font-family: monospace;"><strong style="font-size: x-large;">-</strong></span>
+                    <p id="qtte" style="text-align: center;"> {{objet.quantity}}</p>
+                    <p id="changeValue" style="display: none;">{{defaultValueCount}}</p>
+                </span>
+            </li>
+            <div id="ConfirmDelete" style="display: none;width: 32%;height: 35%;background-color: #d7b8b7;padding: 2.5%;border: 1px solid black;flex-direction: column;justify-content: space-around;">
+                <h3 style="font-weight: lighter;text-align: center;line-height: 35px;color: white;">Etez vous sûr de vouloir retirer cet article de votre panier?</h3>
+                <div style="display: flex; justify-content: space-around;">
+                    <button (click)="deleteArticle()" style="width: 30%;height: 170%;color: #855e30;font-weight: bolder;">Oui</button>
+                    <button (click)="closePopUp()" style="width: 30%;height: 170%;color: #855e30;font-weight: bolder;">Non</button>
+                </div>
+            </div>
+        </ul>
+    </div>
+    <div class="totalPanier"  style="border: 1px solid black;width: 30%;height: fit-content;padding: 5%;">
+        <h2 style="text-transform: uppercase;border-bottom: 1px solid gray;padding-bottom: 3%;text-align: center;">Total</h2>
+            <p style="font-weight: 800;text-transform: uppercase;font-size: unset;">Sous-total <span id="sum"> {{totalPrice}}€</span></p>
+            <p>Conditions de récupération de la commande</p>
+        <button type="submit" (click)="AddForConfirmation()" style="padding: 5%;border-radius: 5px;border: 1px solid #e7afaf;border-style: groove dashed;background-color: #d1acab;color: white;text-transform: uppercase;font-weight: bold;letter-spacing: 1px;">Envoyer la commande</button>
+        <br>
+        <a id="redirectBoutique" href="#boutique">Vers la boutique</a>
+    </div>
+</div>
+<div *ngIf="statusUser == 'admin'" style="background-color: #ffffff78;">
+    <h2 style="text-transform: uppercase; padding-top: 5%;color: #520202;">Mes commandes en attente</h2>
+    <div style="padding: 2%;display: flex;justify-content: space-evenly;flex-wrap: wrap;">
+        <div *ngFor="let obj of recapsCommande; let index = index;" style="background-color: #608b83d1;display: flex; justify-content: space-evenly;border: 1px dashed wheat;margin-bottom: 2%;padding-top: 2%;flex-wrap: wrap;width: 50%;" >
+            <div *ngFor="let item of obj; let index = index">
+                <div style="margin: auto;background-image: url({{item.image}});background-size: cover;background-repeat: no-repeat;width: 70px;height: 70px;"></div>
+                <div style="color:white">
+                    <p>{{item.details.title}}</p>
+                    <p>{{item.details.dimension}}</p>
+                    <p style="margin-top: 15px;">{{item.details.price}}</p>
+                </div>
+                <a *ngIf="index === 0" href="mailto:{{item.mailUser}}" style="position: relative;top: 25%; color:white;line-height: 25px;">Contacter pour valider
+                    <br>
+                    {{item.mailUser}}
+                </a>
+            </div>
+            <div style="display: flex;flex-direction: column;justify-content: space-evenly;width: 50%;align-items: center;margin-left: 40%;">
+                <button type="button" (click)="deleteCommande(index,obj)" style="width: 55%;padding: 3%;border-style: none;margin-top: 5px;"> Valider la commande</button>
+                <small style="margin-bottom : 7%; color: white;margin-top: 10px;">La commande une fois validée, les articles vendus ne seront plus visibles dans la boutique</small>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
